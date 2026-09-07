@@ -50,6 +50,7 @@ import { Toolbar } from './Toolbar';
 import { usePersistence } from './usePersistence';
 import { clearProgress, loadProgress, saveProgress } from './useProgressPersistence';
 import { useSudokuGrid } from './useSudokuGrid';
+import { useDocumentTitle } from './useDocumentTitle';
 import styles from './GamePage.module.css';
 
 type VariantWithColorNames = {
@@ -988,6 +989,7 @@ export function GamePage() {
   }
 
   const variant = useMemo(() => getVariant(variantId), [variantId]);
+  useDocumentTitle(variant.name);
   const {
     settings,
     toggleCheck,
